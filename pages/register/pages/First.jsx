@@ -39,6 +39,12 @@ function First({ navigation }) {
                 label="First Name"
               />
               <Input validation="required" name="fathersName" label="Father's Name" />
+              <Input validation="required" name="grandFathersName" label="Grand Father's Name" />
+              <Input
+                name='address'
+                label='Address'
+                validation='required'
+              />
               <Checkbox
                 validation="required-(you have to accept our terms)"
                 name="accept"

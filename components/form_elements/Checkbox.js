@@ -21,7 +21,7 @@ export default function Checkbox(props) {
             <View style={{flexDirection: 'row', gap: 10}}>
               <TouchableOpacity onPress={() => handle(changeValue)}>
                 <View style={styles.container}>
-                  { checked ? <Text>C</Text> :  ''}
+                  { checked ? <Text style={{color: '#000'}}>C</Text> :  ''}
                 </View>
               </TouchableOpacity>
               {props?.children}

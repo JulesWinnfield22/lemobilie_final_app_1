@@ -207,6 +207,13 @@ function phone_251(value, limit, _, message) {
 	return [false, message || `not a valid phone number`] 
 }
 
+function price(value, limit, _, message) {
+	let regex = /^(?=[^0])[0-9]+$/
+	if(regex.test(value)) return [true]	
+	
+	return [false, message || `not a valid price`] 
+}
+
 function alpha(value, limit, _, message) {
 	let regex = /^[ a-zA-Z]+$/
 	if(limit instanceof Array) {
@@ -258,7 +265,8 @@ const common =  {
 	minmax,
 	exactly,
 	num_minmax,
-	phone_251
+	phone_251,
+	price
 	// shopExists,
 	// telegramExists,
 	// phoneExists,
@@ -284,7 +292,8 @@ const text = {
 	email,
 	phone,
 	oneof,
-	phone_251
+	phone_251,
+	price
 }
 
 const date = common
