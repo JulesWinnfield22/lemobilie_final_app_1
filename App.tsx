@@ -31,11 +31,10 @@ const App = () => {
       {
         !pending ?
         <NavigationContainer>
-          <Stack.Navigator>
-            {
-              !user &&
-              <Stack.Screen options={{headerShown: false}} name='login' component={Login}/>
-            }
+          <Stack.Navigator
+            initialRouteName={!user ? 'login' : 'home'}
+          >
+            <Stack.Screen options={{headerShown: false}} name='login' component={Login}/>
             <Stack.Screen options={{headerShown: false}} name="home" component={Home} />
             <Stack.Screen
               name="introduction"
