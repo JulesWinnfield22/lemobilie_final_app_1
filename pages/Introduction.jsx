@@ -58,7 +58,7 @@ function Intro3(){
 
 export default function Introduction({ navigation }) {
   return (
-    <Screen>
+    <Screen barStyle='dark-content'>
       <View style={styles.container}>
         <Slider
           onPress={() => {

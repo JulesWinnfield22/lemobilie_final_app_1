@@ -12,8 +12,8 @@ export default function Login({ navigation }) {
     navigation.navigate('home')
   }
   return (
-    <Screen style={{relative: 'relative', flexDirection: 'column', justifyContent: 'center'}}> 
-      <View style={{position: 'absolute',  backgroundColor: colors.primary, borderBottomLeftRadius: 30, borderBottomRightRadius: 30, top: 1, width: '100%', zIndex: -1, height: '70%'}}></View>
+    <Screen statusBarBg={colors.primary} style={{relative: 'relative', flexDirection: 'column', justifyContent: 'center'}}> 
+      <View style={{position: 'absolute',  backgroundColor: colors.primary, borderBottomLeftRadius: 30, borderBottomRightRadius: 30, width: '100%', zIndex: -1, height: '70%'}}></View>
       <View style={{flex: 1, alignItems: 'center', paddingHorizontal: 35, justifyContent: 'center'}}>
         <View style={{height: '100%', width: '100%'}}>
           <View style={{height: 250, gap: 5, justifyContent: 'center', alignItems: 'center'}}>

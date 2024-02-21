@@ -7,25 +7,28 @@ import {
   Dimensions,
   Pressable,
   ScrollView,
+  StatusBar,
 } from "react-native";
 import Screen from "../../../components/Screen";
 // import { Ionicons } from "@expo/vector-icons";
 import colors from "../../../assets/style/colors";
 import { useNavigation } from "@react-navigation/native";
 
-function UtilCard({text, image}) {
+function UtilCard({text, image, to, navigation}) {
   return (
-    <View
+    <Pressable
+      onPress={() => navigation.navigate(to)}
       style={{
         width: "30%",
-        height: 150,
+        height: 120,
         flexDirection: "column",
         borderRadius: 10,
-        borderColor: colors["gray-300"],
+        borderColor: colors.primary,
         borderWidth: 1,
         alignItems: "center",
         justifyContent: "center",
         borderRadius: 10,
+        // backgroundColor: colors.primary
       }}
     >
       <Image
@@ -35,18 +38,20 @@ function UtilCard({text, image}) {
 
       {/* <Ionicons name="home" size={24} color="rgb(255, 0, 0)" /> */}
       <Text style={{}}>{ text }</Text>
-    </View>
+    </Pressable>
   )
 }
 
 const data = [
   {
     image: require("../../../assets/images/workicon-removebg-preview.png"),
-    text: 'How it Works'
+    text: 'How it Works',
+    to: ''
   },
   {
     image: require("../../../assets/images/my_policy-removebg-preview.png"),
-    text: 'My Policy Doc'
+    text: 'My Policy Doc',
+    to: 'mypolicy'
   },
   {
     image: require("../../../assets/images/changPremium-removebg-preview.png"),
@@ -66,7 +71,8 @@ const data = [
   },
   {
     image: require("../../../assets/images/contact_and_support-removebg-preview.png"),
-    text: 'Contact & Support'
+    text: 'Contact & Support',
+    to: 'contact'
   },
   {
     image: require("../../../assets/images/claim-removebg-preview.png"),
@@ -79,8 +85,7 @@ const data = [
 ]
 
 
-function Home() {
-  const navigation = useNavigation();
+function Home({ navigation }) {
   const goToProfileScreen = () => {
     navigation.navigate("myPolicy");
   };
@@ -109,61 +114,61 @@ function Home() {
   }, []);
 
   return (
-    <Screen>
-      <View style={{width: "100%", overflow: "hidden", borderRadius: 10, paddingHorizontal: 5}}>
-      <View style={{borderRadius: 10, overflow: "hidden", height: 250, flex: 1, }}>
-        <View>
-          <Image
-            source={images[currentIndex]}
-            style={{ borderRadius: 10, width: screenWidth, height: screenHeight * 0.35 }}
-            resizeMode="cover"
-          />
+    <>
+      <Screen barStyle="dark-content">
+        <View style={{width: "100%", overflow: "hidden",}}>
+          <View style={{overflow: "hidden", height: 250, flex: 1, }}>
+            <View>
+              <Image
+                source={images[currentIndex]}
+                style={{ width: screenWidth, height: screenHeight * 0.35 }}
+                resizeMode="cover"
+              />
+            </View>
+            <View
+              style={{
+                overflow: "hidden",
+                              position: "absolute",
+                width: "100%",
+                height: "100%",
+                backgroundColor: "#0009",
+                justifyContent: "flex-end",
+              }}
+            >
+              <Text
+                style={{
+                  color: "white",
+                  fontSize: 40,
+                  fontWeight: "800",
+                  marginLeft: 14,
+                  lineHeight: 38,
+                }}
+              >
+                Mobile
+              </Text>
+              <Text
+                style={{
+                  color: "white",
+                  fontSize: 40,
+                  fontWeight: "800",
+                  marginLeft: 14,
+                  lineHeight: 38,
+                }}
+              >
+                Insurance
+              </Text>
+            </View>
+          </View>
         </View>
-        <View
-          style={{
-            overflow: "hidden",
-            borderRadius: 10,
-            position: "absolute",
-            width: "100%",
-            height: "100%",
-            backgroundColor: "#0008",
-            justifyContent: "flex-end",
-          }}
-        >
-          <Text
-            style={{
-              color: "white",
-              fontSize: 40,
-              fontWeight: "800",
-              marginLeft: 14,
-              lineHeight: 38,
-            }}
-          >
-            Mobile
-          </Text>
-          <Text
-            style={{
-              color: "white",
-              fontSize: 40,
-              fontWeight: "800",
-              marginLeft: 14,
-              lineHeight: 38,
-            }}
-          >
-            Insurance
-          </Text>
+        <View style={{ padding: 5, flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'space-between', gap: 10, flexGrow: 1 }}>
+          {
+            data.map(el => {
+              return <UtilCard to={el.to} navigation={navigation} key={el.text} text={el.text} image={el.image} />
+            })
+          }
         </View>
-      </View>
-
-      </View>
-      <View style={{ padding: 5, flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'space-between', gap: 10, flexGrow: 1 }}>
-        {
-          data.map(el => {
-            return <UtilCard key={el.text} text={el.text} image={el.image} />
-          })
-        }
-      </View>
-    </Screen>
+      </Screen>
+    </>
   );
 };
 

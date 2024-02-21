@@ -40,7 +40,7 @@ export default function SignIn({ navigation }) {
     }
   }, [code])
   return (
-    <Screen>
+    <Screen barStyle='dark-content'>
       <View style={styles.container}>
         <View style={{justifyContent: 'center', flexGrow: 1, gap: 10, alignItems: 'center', paddingHorizontal: 30}}>
           {/* <FontAwesome size={120} name='commenting' /> */}
@@ -61,7 +61,7 @@ export default function SignIn({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
+    flex: 1,
     justifyContent: 'center',
     gap: 20,
     position: 'relative'

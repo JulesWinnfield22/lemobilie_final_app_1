@@ -1,10 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { memo, useEffect, useRef, useState } from 'react'
 import { View, StyleSheet, TextInput, Keyboard } from 'react-native'
 import colors from '../../assets/style/colors'
 
-export default function BoxNumberInput({ active = false, onFocus = f => f, onBlur = f => f, onChange = f => f }) {
+function BoxNumberInput({ active = false, onFocus = f => f, onBlur = f => f, onChange = f => f }) {
   const input = useRef(null)
 
+  console.log('gere')
+  
   useEffect(() => {
     if(active) {
       input.current.focus()
@@ -25,3 +27,5 @@ export default function BoxNumberInput({ active = false, onFocus = f => f, onBlu
     />
   )
 }
+
+export default memo(BoxNumberInput)

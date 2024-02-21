@@ -3,7 +3,7 @@ import { View, StyleSheet, TouchableOpacity, Text } from 'react-native'
 import colors from '../../assets/style/colors'
 import InputParent from '../form/InputParent'
 import ErrorMessage from '../ErrorMessage'
-
+import Icon from 'react-native-vector-icons/AntDesign'
 export default function Checkbox(props) {
   const [checked, setChecked] = useState(false)
 
@@ -19,10 +19,10 @@ export default function Checkbox(props) {
         return (
           <View>
             <View style={{flexDirection: 'row', gap: 10}}>
-              <TouchableOpacity onPress={() => handle(changeValue)}>
-                <View style={styles.container}>
-                  { checked ? <Text style={{color: '#000'}}>C</Text> :  ''}
-                </View>
+              <TouchableOpacity style={styles.container} onPress={() => handle(changeValue)}>
+                { checked ? <Text style={{color: '#000'}}>
+                  <Icon name='check' />
+                </Text> :  ''}
               </TouchableOpacity>
               {props?.children}
             </View>

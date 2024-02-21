@@ -5,7 +5,7 @@ import colors from "../../assets/style/colors";
 import globalSyles from '../../assets/style/style'
 import ErrorMessage from "../ErrorMessage";
 
-export default function InputLayout({ value, children, error, label, Left }) {
+export default function InputLayout({ value, children, error, label, Left, Right }) {
   const [focus, setFocus] = useState(false)
 
   const ModChild = React.createElement(children.type, {
@@ -35,8 +35,14 @@ export default function InputLayout({ value, children, error, label, Left }) {
           </View>
         }
         {ModChild}
+        {
+          Right &&
+          <View style={{justifyContent: 'center', alignItems: 'center', height: '100%', minWidth: 50}}>
+            {Right}
+          </View>
+        }
         <Text style={[styles.label, {
-          fontSize: focus || value ? 13 : 15,
+          fontSize: focus || value || Left ? 13 : 15,
           color: focus ? colors.primary : colors["gray-400"],
           transform: [
             {

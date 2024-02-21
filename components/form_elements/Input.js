@@ -10,7 +10,7 @@ export default function Input(props) {
       props={{...props, style: {...(props?.style || {}), flex: 1}}}
       builder={({ Input, value, error }) => {
         return (
-          <InputLayout Left={props?.Left} value={value || props?.defaultValue} error={error} label={props?.label}>
+          <InputLayout Right={props?.Right} Left={props?.Left} value={value || props?.defaultValue} error={error} label={props?.label}>
             {Input}
           </InputLayout>
         )    

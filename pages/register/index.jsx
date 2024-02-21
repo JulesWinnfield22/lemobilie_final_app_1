@@ -3,6 +3,7 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import First from "./pages/First";
 import Second from "./pages/Second";
+import Third from "./pages/Third";
 
 const Stack = createNativeStackNavigator();
 
@@ -15,6 +16,7 @@ export default function Register(props) {
     >
       <Stack.Screen name="First" component={First} />
       <Stack.Screen name="Second" component={Second} />
+      <Stack.Screen name="Third" component={Third} />
     </Stack.Navigator>
   );
 }

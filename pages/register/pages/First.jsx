@@ -23,7 +23,7 @@ function First({ navigation }) {
   
   function submitForm(values) {
     console.log("submited", values);
-    navigation.navigate('Second')
+    navigation.navigate('Second', values)
   }
 
   return (
@@ -38,29 +38,21 @@ function First({ navigation }) {
                 defaultValue="Haben"
                 label="First Name"
               />
-              <Input validation="required" name="fathersName" label="Father's Name" />
-              <Input validation="required" name="grandFathersName" label="Grand Father's Name" />
+              <Input
+                validation="required"
+                name="fatherName"
+                label="Father's Name"
+              />
+              <Input
+                validation="required"
+                name="grandFatherName"
+                label="Grand Father's Name"
+              />
               <Input
                 name='address'
                 label='Address'
                 validation='required'
               />
-              <Checkbox
-                validation="required-(you have to accept our terms)"
-                name="accept"
-              >
-                <Text
-                  style={{
-                    fontSize: 13,
-                    fontWeight: "400",
-                    color: colors["gray-400"],
-                  }}
-                >
-                  By checking this I agree to the {" "}
-                  <Text style={{ color: colors.primary }}>terms and conditions</Text> 
-                  
-                </Text>
-              </Checkbox>
               <FormSubmitBtnText
                 onPress={() => {
                   submit(submitForm);

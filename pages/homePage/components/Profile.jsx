@@ -6,7 +6,6 @@ export default function Footer() {
   return (
     <Screen>
       <View style={styles.container}>
-        <Text>footer</Text>
       </View>
     </Screen>
   );

@@ -4,7 +4,7 @@ import Screen from '../components/Screen'
 import Form from '../components/form/Form'
 import Input from '../components/form_elements/Input'
 import colors from '../assets/style/colors'
-// import { AntDesign } from '@expo/vector-icons'
+import Icon from 'react-native-vector-icons/AntDesign';
 
 export default function SignIn({ navigation }) {
 
@@ -13,7 +13,7 @@ export default function SignIn({ navigation }) {
   }
 
   return (
-    <Screen>
+    <Screen barStyle='dark-content'>
       <View style={styles.container}>
         <View style={{justifyContent: 'flex-end', flexGrow: 1, gap: 10, alignItems: 'center', paddingHorizontal: 60}}>
           <Text style={{textAlign:'center', color: colors['gray-500'], fontWeight: '700', fontSize: 18}}>Your phone number</Text>
@@ -35,7 +35,7 @@ export default function SignIn({ navigation }) {
                 />
                 <Pressable style={{position: 'absolute', bottom: 20, right: 20}} onPress={() => submit(submitForm)}>
                   <View style={{justifyContent: 'center', alignItems: 'center', width: 60, height: 60, borderRadius: 40, backgroundColor: colors.primary}}>
-                    {/* <AntDesign color='white' size={20} name='arrowright' /> */}
+                    <Icon name="arrowright" size={30} color="#fff" />
                   </View>
                 </Pressable>
               </>

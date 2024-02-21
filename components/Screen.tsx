@@ -1,9 +1,16 @@
-import React from "react";
-// import Constants from "expo-constants";
-import { SafeAreaView, StatusBar, ScrollView, StyleSheet } from "react-native";
+import React, { PropsWithChildren } from "react";
+import { SafeAreaView, StatusBar, ScrollView, StyleSheet, ViewStyle } from "react-native";
 import colors from "../assets/style/colors";
+import { StatusBarStyle } from 'react-native'
 
-export default function Screen({ safeArea = true, statusBarBg, children, style = {} }) {
+type ScreenProps = PropsWithChildren<{
+  barStyle: StatusBarStyle,
+  safeArea: boolean,
+  statusBarBg: string,
+  style?: ViewStyle
+}>
+
+export default function Screen({ barStyle = 'dark-content', safeArea = true, statusBarBg = 'white', children, style = {} }: ScreenProps) {
 
   if(safeArea) {
     return (
@@ -13,7 +20,7 @@ export default function Screen({ safeArea = true, statusBarBg, children, style =
             {children}
           </ScrollView>
         </SafeAreaView>
-        <StatusBar barStyle={'dark-content'} backgroundColor={statusBarBg || '#0000'} style="auto" />
+        <StatusBar barStyle={barStyle} backgroundColor={statusBarBg} />
       </>
     );
   }
@@ -23,7 +30,7 @@ export default function Screen({ safeArea = true, statusBarBg, children, style =
       <ScrollView contentContainerStyle={[{backgroundColor: colors.baseClr, flexGrow: 1 }]}>
         {children}
       </ScrollView>
-      <StatusBar barStyle={'dark-content'} backgroundColor={statusBarBg || '#0000'} style="auto" />
+      <StatusBar barStyle={barStyle} backgroundColor={statusBarBg} />
     </>
   )
 }

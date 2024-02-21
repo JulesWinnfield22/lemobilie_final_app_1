@@ -16,8 +16,10 @@ import Profile from "./components/Profile";
 import Policy from "./components/Policy";
 import QualityCheck from "./components/QualityCheck";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-// import { Ionicons } from "@expo/vector-icons";
+import Icon from "react-native-vector-icons/AntDesign";
+import IonIcon from "react-native-vector-icons/Ionicons";
 import Screen from "../../components/Screen";
+import colors from "../../assets/style/colors";
 
 const Tab = createBottomTabNavigator();
 
@@ -78,7 +80,7 @@ export default function Home({ navigation }) {
   const state = useState();
 
   return (
-    <Screen>
+    <Screen barStyle="dark-content">
       <Modal
         animationType="none"
         transparent={true}
@@ -226,6 +228,7 @@ export default function Home({ navigation }) {
       <Tab.Navigator
         screenOptions={({ route }) => ({
           headerShown: false,
+          tabBarActiveTintColor: colors.primary, 
         })}
       >
         <Tab.Screen
@@ -233,6 +236,7 @@ export default function Home({ navigation }) {
           component={NavBar}
           options={{
             headerTitle: "Home",
+            tabBarIcon: ({focused}) => <Icon color={focused && colors.primary} name='home' size={25} />,
             headerLeft: () => (
               <TouchableOpacity
                 style={{ marginLeft: 10 }}
@@ -248,17 +252,17 @@ export default function Home({ navigation }) {
         <Tab.Screen
           name="Policy"
           component={Policy}
-          options={{ headerTitle: "Policy", headerTitleAlign: "center" }}
+          options={{ tabBarIcon: ({focused}) => <Icon color={focused && colors.primary} name='setting' size={25} />, headerTitle: "Policy", headerTitleAlign: "center" }}
         />
         <Tab.Screen
-          name="QualityCheck"
+          name="Quality Check"
           component={QualityCheck}
-          options={{ headerTitle: "Quality Check", headerTitleAlign: "center" }}
+          options={{ tabBarIcon: ({focused}) => <IonIcon color={focused && colors.primary} name='checkmark-done-sharp' size={25} />, headerTitle: "Quality Check", headerTitleAlign: "center" }}
         />
         <Tab.Screen
           name="Profile"
           component={Profile}
-          options={{ headerTitle: "profile", headerTitleAlign: "center" }}
+          options={{ tabBarIcon: ({focused}) => <Icon color={focused && colors.primary} name='user' size={25} />, headerTitle: "profile", headerTitleAlign: "center" }}
         />
       </Tab.Navigator>
     </Screen>

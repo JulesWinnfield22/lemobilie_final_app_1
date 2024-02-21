@@ -1,7 +1,7 @@
 import axios from "axios";
 import { responseHandler } from "./ApiResponsehandler";
 
-const backendApiUrl = 'http://192.168.100.5:3000/api/payer/claimconnect'
+const backendApiUrl = 'http://192.168.100.5:8192/api/payer/claimconnect'
 
 // api({
 //   baseURL: 'http://localhost:3000/',
@@ -30,7 +30,7 @@ export default class ApiService {
     this.api = axios.create({
       // withCredentials: true,
       baseURL,
-      // timeout: 10000,
+      // timeout: 3000,
       validateStatus: (status) => {
         return status >= 200 && status < 300;
       },

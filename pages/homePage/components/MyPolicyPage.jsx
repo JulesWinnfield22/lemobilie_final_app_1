@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { Pressable, Text, View } from "react-native";
 import Screen from "../../../components/Screen";
 import colors from "../../../assets/style/colors";
-import { MaterialIcons } from "react-native-vector-icons";
-import { FontAwesome } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
-import { AntDesign } from "@expo/vector-icons";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import { FontAwesome } from "react-native-vector-icons/FontAwesome";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import AntDesign from "react-native-vector-icons/AntDesign";
 import { useNavigation } from "@react-navigation/native";
 
 const MyPolicyPage = () => {

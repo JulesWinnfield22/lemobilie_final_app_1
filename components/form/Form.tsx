@@ -1,10 +1,10 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, ViewStyle } from 'react-native'
 
 const FormContext = createContext(null)
 export const useForm = () => useContext(FormContext)
 
-export default function Form({form, style}) {
+export default function Form({form, style}: {form: any, style?: ViewStyle}) {
   const [values, setValues] = useState([])
   const [validateAll, setValidateAll] = useState({
     validate: false,

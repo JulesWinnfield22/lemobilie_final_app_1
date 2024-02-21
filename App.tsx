@@ -8,20 +8,24 @@ import Register from './pages/register';
 import Home from './pages/homePage'
 import Login from './pages/Login';
 import Premium from './pages/Premium';
+import Contact from './pages/homePage/components/Contact';
+import MyPolicyPage from './pages/homePage/components/MyPolicyPage';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen options={{headerShown: false}} name='login' component={Login}/>
         <Stack.Screen
           name="introduction"
           component={Introduction}
           options={{title: 'Welcome', headerShown: false}}
         />
-        <Stack.Screen options={{headerShown: false}} name="home" component={Home} />
+        <Stack.Screen options={{headerShown: false}} name='login' component={Login}/>
         <Stack.Screen options={{headerShown: false}} name="getrare" component={Premium} />
+        <Stack.Screen options={{headerShown: false}} name="home" component={Home} />
+        <Stack.Screen options={{headerShown: false}} name="contact" component={Contact} />
+        <Stack.Screen options={{headerShown: false}} name="mypolicy" component={MyPolicyPage} />
         <Stack.Screen options={{headerShown: false}} name="signin" component={SignIn} />
         <Stack.Screen options={{headerShown: false}} name="verify_phone" component={VerifiyPhone} />
         <Stack.Screen options={{headerShown: false}} name="register" component={Register} />

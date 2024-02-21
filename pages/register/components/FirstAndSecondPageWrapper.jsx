@@ -26,7 +26,7 @@ function FirsAndSecondPageWrapper({ children, title, subTitle }) {
   const navigation = useNavigation();
 
   return (
-    <Screen>
+    <Screen barStyle="dark-content" statusBarBg="white">
       <View style={styles.header}>
         <Text style={styles.headerText}>
           {title}

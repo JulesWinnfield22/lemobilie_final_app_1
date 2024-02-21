@@ -15,8 +15,8 @@ const data = [
 
 export default function Footer() {
   return (
-    <Screen safeArea={false}>
-      <View style={styles.imageContainer}>
+    <Screen barStyle="dark-content">
+      {/* <View style={styles.imageContainer}>
         <Image style={{resizeMode: 'cover', height: '100%', width: '100%'}} source={require('../../../assets/images/phone.jpg')} />
         <Text style={{lineHeight: 40, color: 'white',  fontSize: 40, fontWeight: '800'}}>
           Mobile
@@ -35,7 +35,7 @@ export default function Footer() {
             )
           })
         }
-      </View>
+      </View> */}
     </Screen>
   );
 }
