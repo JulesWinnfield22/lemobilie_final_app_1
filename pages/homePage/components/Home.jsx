@@ -37,7 +37,7 @@ function UtilCard({text, image, to, navigation}) {
       ></Image>
 
       {/* <Ionicons name="home" size={24} color="rgb(255, 0, 0)" /> */}
-      <Text style={{}}>{ text }</Text>
+      <Text style={{color:colors["gray-500"]}}>{ text }</Text>
     </Pressable>
   )
 }
