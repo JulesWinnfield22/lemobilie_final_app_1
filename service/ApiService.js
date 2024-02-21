@@ -1,7 +1,7 @@
 import axios from "axios";
 import { responseHandler } from "./ApiResponsehandler";
 
-const backendApiUrl = 'http://192.168.100.5:8192/api/payer/claimconnect'
+const backendApiUrl = 'http://192.168.100.5:8192/api/lemobileyeservice'
 
 // api({
 //   baseURL: 'http://localhost:3000/',

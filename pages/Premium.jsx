@@ -30,9 +30,9 @@ export default function Premium({ navigation }) {
         <MaterialIcons name='payments' size={100} color={'#000'} />
       </View>
       <View style={styles.container}>
-        <View style={{flexDirection: 'row', gap: 5, alignItems: 'center'}}>
-          <Text style={{color: colors.primary, fontSize: 15}}>Premium Type</Text>
-          <View style={{flex: 1, justifyContent: 'center', height: 35, borderRadius: 5, overflow: 'hidden', borderWidth: 2, borderColor: colors['gray-300']}}>
+        <View style={{flexDirection: 'column', gap: 5}}>
+          <Text style={{color: colors.primary, fontSize: 15, fontWeight: '700'}}>Select Premium Type</Text>
+          <View style={{flex: 1, width: '100%', justifyContent: 'center', height: 35, borderRadius: 5, overflow: 'hidden', borderWidth: 1, borderColor: colors['gray-300']}}>
             <Picker
               mode='dropdown'
               style={{flex: 1, justifyContent: 'center', height: 35}}
@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     padding: 20,
+    justifyContent: 'flex-start',
     gap: 30
   }
 })

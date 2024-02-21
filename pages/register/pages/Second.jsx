@@ -27,7 +27,16 @@ function Second({ navigation }) {
     
     console.log("submited", values);
     registerReq.send(
-      () => register({...values, ...userInfo, accept: undefined, gender: 'Male'}),
+      () => register({
+        ...values,
+        ...userInfo,
+        mobilePhone: '0912121212',
+        accept: undefined,
+        gender: 'Male',
+        designation: '',
+        userType: '',
+        userStatus: ''
+      }),
       res => {
         console.log(res)
         navigation.navigate('Third', values)
