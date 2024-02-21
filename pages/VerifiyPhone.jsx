@@ -49,7 +49,7 @@ export default function SignIn({ navigation }) {
           <View style={{marginTop: 12, gap: 5, flexDirection: 'row'}}>
             {
               codeLength.map((el, idx) => {
-                return <BoxNumberInput onChange={(val) => onChange(val, idx)} onFocus={() => onFocus(idx)} active={active == idx} key={idx} />
+                return <BoxNumberInput onChange={(val) => onChange(val, idx)} onFocus={() => onFocus(idx)} active={active == idx} key={idx}  />
               })
             }
           </View>

@@ -47,7 +47,7 @@ export default function Contact() {
           }}
         >
           <View style={{ flexDirection: "column", gap: 20, marginLeft: 30 }}>
-            <Text>Nyala insurance Contact center</Text>
+            <Text style={{color:colors["gray-450"]}}>Nyala insurance Contact center</Text>
             <Text style={{ color: "#0373fc" }}>+251946532178</Text>
           </View>
           <Ionicons
@@ -71,7 +71,7 @@ export default function Contact() {
           }}
         >
           <View style={{ flexDirection: "column", gap: 20, marginLeft: 30 }}>
-            <Text>Nyala Insurance Web Site</Text>
+            <Text style={{color:colors["gray-450"]}}>Nyala Insurance Web Site</Text>
             <Text style={{ color: "#0373fc" }}>WWW.NyalInsurance.com</Text>
           </View>
           <MaterialCommunityIcons
@@ -101,7 +101,7 @@ export default function Contact() {
               marginLeft: 30,
             }}
           >
-            <Text>Social Media</Text>
+            <Text style={{color:colors["gray-450"]}}>Social Media</Text>
             <View style={{ flexDirection: "row", gap: 20 }}>
               <View
                 style={{

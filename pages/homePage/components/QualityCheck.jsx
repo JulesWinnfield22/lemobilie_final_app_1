@@ -7,7 +7,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign'
 function Info({name, value}) {
   return (
     <View style={{flexDirection: 'row', gap: 5}}>
-      <Text style={{fontSize: 13}}>{name}: </Text>
+      <Text style={{fontSize: 13, color:colors["gray-400"]}}>{name}: </Text>
       <Text style={{fontSize: 14, color: colors.primary, fontWeight: '600'}}>{ value }</Text>
     </View>
   )

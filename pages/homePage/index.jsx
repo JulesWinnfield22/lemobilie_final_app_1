@@ -236,7 +236,7 @@ export default function Home({ navigation }) {
           component={NavBar}
           options={{
             headerTitle: "Home",
-            tabBarIcon: ({focused}) => <Icon color={focused && colors.primary} name='home' size={25} />,
+            tabBarIcon: ({focused}) => <Icon color={focused ? colors.primary : colors["gray-500"]} name='home' size={25} />,
             headerLeft: () => (
               <TouchableOpacity
                 style={{ marginLeft: 10 }}
@@ -252,17 +252,17 @@ export default function Home({ navigation }) {
         <Tab.Screen
           name="Policy"
           component={Policy}
-          options={{ tabBarIcon: ({focused}) => <Icon color={focused && colors.primary} name='setting' size={25} />, headerTitle: "Policy", headerTitleAlign: "center" }}
+          options={{ tabBarIcon: ({focused}) => <Icon color={focused ? colors.primary : colors["gray-500"]} name='setting' size={25} />, headerTitle: "Policy", headerTitleAlign: "center" }}
         />
         <Tab.Screen
           name="Quality Check"
           component={QualityCheck}
-          options={{ tabBarIcon: ({focused}) => <IonIcon color={focused && colors.primary} name='checkmark-done-sharp' size={25} />, headerTitle: "Quality Check", headerTitleAlign: "center" }}
+          options={{ tabBarIcon: ({focused}) => <IonIcon color={focused ? colors.primary : colors["gray-500"]} name='checkmark-done-sharp' size={25} />, headerTitle: "Quality Check", headerTitleAlign: "center" }}
         />
         <Tab.Screen
-          name="Profile"
+          name="Acount"
           component={Profile}
-          options={{ tabBarIcon: ({focused}) => <Icon color={focused && colors.primary} name='user' size={25} />, headerTitle: "profile", headerTitleAlign: "center" }}
+          options={{ tabBarIcon: ({focused}) => <Icon color={focused ? colors.primary : colors["gray-500"]} name='user' size={25} />, headerTitle: "profile", headerTitleAlign: "center" }}
         />
       </Tab.Navigator>
     </Screen>

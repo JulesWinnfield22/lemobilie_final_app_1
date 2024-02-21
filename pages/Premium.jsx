@@ -34,8 +34,9 @@ export default function Premium({ navigation }) {
           <Text style={{color: colors.primary, fontSize: 15, fontWeight: '700'}}>Select Premium Type</Text>
           <View style={{flex: 1, width: '100%', justifyContent: 'center', height: 35, borderRadius: 5, overflow: 'hidden', borderWidth: 1, borderColor: colors['gray-300']}}>
             <Picker
+            dropdownIconColor='black'
               mode='dropdown'
-              style={{flex: 1, justifyContent: 'center', height: 35}}
+              style={{flex: 1, justifyContent: 'center', height: 35,color:'black'}}
               selectedValue={selected}
               onValueChange={(itemValue) => {
                 setSelected(itemValue)
