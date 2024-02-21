@@ -1,18 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { View, StyleSheet, Text, Pressable } from 'react-native'
 import Form from '../components/form/Form'
 import Input from '../components/form_elements/Input'
 import Screen from '../components/Screen'
 import colors from '../assets/style/colors'
 import FormSubmitBtnText from './register/components/FormSubmitBtnText'
+import { getLoggedInUser } from './auth/auth'
+import { useSelector, useDispatch } from 'react-redux'
+import { decrement, indrement } from '../store/reducers/counter'
 
 export default function Login({ navigation }) {
+  const count = useSelector(state => state.counter.count)
+  const dispatch = useDispatch()
+
+  const { pending, getUser, user } = getLoggedInUser()
+
+  React.useEffect(() => {
+    getUser()
+  }, [])
+
 
   function submitForm({values}) {
     navigation.navigate('home')
   }
+
   return (
-    <Screen statusBarBg={colors.primary} style={{relative: 'relative', flexDirection: 'column', justifyContent: 'center'}}> 
+    <Screen barStyle='light-content' statusBarBg={colors.primary} style={{relative: 'relative', flexDirection: 'column', justifyContent: 'center'}}> 
       <View style={{position: 'absolute',  backgroundColor: colors.primary, borderBottomLeftRadius: 30, borderBottomRightRadius: 30, width: '100%', zIndex: -1, height: '70%'}}></View>
       <View style={{flex: 1, alignItems: 'center', paddingHorizontal: 35, justifyContent: 'center'}}>
         <View style={{height: '100%', width: '100%'}}>
@@ -47,7 +60,7 @@ export default function Login({ navigation }) {
           </View>
           <View style={{flexGrow: 1, gap: 6, padding: 20, alignItems: 'center'}}>
             <Text style={{justifyContent: 'center', color: colors['gray-500'], fontSize: 16, alignItems: 'center', color: colors['gray-500']}}>Don't Have an Account?</Text>
-            <Pressable onPress={() => navigation.navigate('register')}>
+            <Pressable onPress={() => navigation.navigate(user ? 'home' : 'introduction')}>
               <Text style={{color: colors.primary, fontSize: 18, fontWeight: '800'}}>REGISTER</Text>
             </Pressable>
           </View>

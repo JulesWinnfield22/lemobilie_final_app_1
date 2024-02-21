@@ -12,9 +12,11 @@ import Checkbox from '../../../components/form_elements/Checkbox'
 import { useApiRequest } from '../../../hooks/useApiRequest'
 import { register } from '../api/authApi'
 import { useRoute } from '@react-navigation/native'
+import { Picker } from '@react-native-picker/picker'
+import { setLoggedInUser } from '../../auth/auth'
 
 function Second({ navigation }) {
-  const state = useState();
+  const [gender, setGeder] = useState('Male');
   const registerReq = useApiRequest()
   const route = useRoute()
 
@@ -30,29 +32,42 @@ function Second({ navigation }) {
       () => register({
         ...values,
         ...userInfo,
-        mobilePhone: '0912121212',
         accept: undefined,
-        gender: 'Male',
-        designation: '',
-        userType: '',
-        userStatus: ''
+        gender,
+        userStatus: 'Active'
       }),
       res => {
         console.log(res)
-        navigation.navigate('Third', values)
+        if(res.success) {
+          setLoggedInUser({
+            token: 'loged in man.',
+            user: {
+              ...values,
+              ...userInfo,
+              gender,
+              userStatus: 'Active'
+            }
+          })
+          navigation.replace('Third', values)
+        }
       }
     )
   }
 
   return (
     <FirsAndSecondPageWrapper title='More Information' subTitle='Please fill all the fiels below'>
+      {registerReq.error && <View style={{paddingHorizontal: 10, minHeight: 30, justifyContent: 'center', marginHorizontal: 15, backgroundColor: '#0002', borderLeftWidth: 5, borderColor: 'red'}}>
+        <Text style={{color: 'red'}}>
+          {registerReq.error.substring(6)}
+        </Text>
+      </View>}
       <Form
         form={({submit}) => (
           <>
             <Input
               name='userName'
               validation="required"
-              label='username'
+              label='Username'
             />
             <Input
               name='email'
@@ -76,6 +91,12 @@ function Second({ navigation }) {
               validation="required"
               label='Password'
             />
+            <View style={{borderWidth: 2, borderColor: colors['gray-300'], borderRadius: 5, justifyContent: 'center', height: 50}}>
+              <Picker selectedValue={gender} onValueChange={(val) => setGeder(val)} mode='dropdown'>
+                <Picker.Item label='Male' value='Male' />
+                <Picker.Item label='Femael' value='Female' />
+              </Picker>
+            </View>
             <Checkbox
               validation="required-(you have to accept our terms)"
               name="accept"

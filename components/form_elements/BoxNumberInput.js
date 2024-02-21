@@ -5,8 +5,6 @@ import colors from '../../assets/style/colors'
 function BoxNumberInput({ active = false, onFocus = f => f, onBlur = f => f, onChange = f => f }) {
   const input = useRef(null)
 
-  console.log('gere')
-  
   useEffect(() => {
     if(active) {
       input.current.focus()

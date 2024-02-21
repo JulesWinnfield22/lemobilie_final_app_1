@@ -9,7 +9,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 export default function SignIn({ navigation }) {
 
   function submitForm(values) {
-    navigation.navigate('verify_phone', {phone: `+251${values.phone}`})
+    navigation.navigate('verify_phone', {mobilePhone: `+251${values.mobilePhone}`})
   }
 
   return (
@@ -26,7 +26,7 @@ export default function SignIn({ navigation }) {
               <>
                 <Input
                   Left={<Text style={{fontSize: 16, color: colors['gray-500'],}}>+251</Text>}
-                  name='phone'
+                  name='mobilePhone'
                   autoFocus={true}
                   validation='required|phone_251'
                   label='Phone number'

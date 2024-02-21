@@ -10,27 +10,49 @@ import Login from './pages/Login';
 import Premium from './pages/Premium';
 import Contact from './pages/homePage/components/Contact';
 import MyPolicyPage from './pages/homePage/components/MyPolicyPage';
+import { getLoggedInUser } from './pages/auth/auth'
+import { Text } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import store from './store/reduxStore'
+import { Provider } from 'react-redux';
+
 const Stack = createNativeStackNavigator();
 
 const App = () => {
+  const { pending, getUser, user } = getLoggedInUser()
+
+  // AsyncStorage.clear()
+  React.useEffect(() => {
+    getUser()
+  }, [])
+
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="introduction"
-          component={Introduction}
-          options={{title: 'Welcome', headerShown: false}}
-        />
-        <Stack.Screen options={{headerShown: false}} name='login' component={Login}/>
-        <Stack.Screen options={{headerShown: false}} name="getrare" component={Premium} />
-        <Stack.Screen options={{headerShown: false}} name="home" component={Home} />
-        <Stack.Screen options={{headerShown: false}} name="contact" component={Contact} />
-        <Stack.Screen options={{headerShown: false}} name="mypolicy" component={MyPolicyPage} />
-        <Stack.Screen options={{headerShown: false}} name="signin" component={SignIn} />
-        <Stack.Screen options={{headerShown: false}} name="verify_phone" component={VerifiyPhone} />
-        <Stack.Screen options={{headerShown: false}} name="register" component={Register} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      {
+        !pending ?
+        <NavigationContainer>
+          <Stack.Navigator>
+            {
+              !user &&
+              <Stack.Screen options={{headerShown: false}} name='login' component={Login}/>
+            }
+            <Stack.Screen options={{headerShown: false}} name="home" component={Home} />
+            <Stack.Screen
+              name="introduction"
+              component={Introduction}
+              options={{title: 'Welcome', headerShown: false}}
+            />
+            <Stack.Screen options={{headerShown: false}} name="getrare" component={Premium} />
+            <Stack.Screen options={{headerShown: false}} name="contact" component={Contact} />
+            <Stack.Screen options={{headerShown: false}} name="mypolicy" component={MyPolicyPage} />
+            <Stack.Screen options={{headerShown: false}} name="signin" component={SignIn} />
+            <Stack.Screen options={{headerShown: false}} name="verify_phone" component={VerifiyPhone} />
+            <Stack.Screen options={{headerShown: false}} name="register" component={Register} />
+          </Stack.Navigator>
+        </NavigationContainer> :
+        <Text>Loding</Text>
+      }
+    </Provider>
   );
 };
 

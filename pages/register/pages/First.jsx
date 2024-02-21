@@ -1,4 +1,4 @@
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import {
   Button,
   KeyboardAvoidingView,
@@ -20,10 +20,12 @@ import FormSubmitBtnText from "../components/FormSubmitBtnText";
 
 function First({ navigation }) {
   const state = useState();
-  
+
+  const route = useRoute()
+  const data = route.params
+
   function submitForm(values) {
-    console.log("submited", values);
-    navigation.navigate('Second', values)
+    navigation.navigate('Second', {...values, ...data})
   }
 
   return (

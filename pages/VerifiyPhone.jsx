@@ -36,7 +36,7 @@ export default function SignIn({ navigation }) {
 
   useEffect(() => {
     if(code.every(el => el !== 0)) {
-      navigation.navigate('register')
+      navigation.navigate('register', data)
     }
   }, [code])
   return (
@@ -45,7 +45,7 @@ export default function SignIn({ navigation }) {
         <View style={{justifyContent: 'center', flexGrow: 1, gap: 10, alignItems: 'center', paddingHorizontal: 30}}>
           {/* <FontAwesome size={120} name='commenting' /> */}
           <Text style={{textAlign:'center', fontWeight: '700', color: colors['gray-500'], fontSize: 18}}>Enter code</Text>
-          <Text style={{textAlign:'center', color: colors['gray-500']}}>We have sent an sms with an activation code to your phone {data?.phone}.</Text>
+          <Text style={{textAlign:'center', color: colors['gray-500']}}>We have sent an sms with an activation code to your phone {data?.mobilePhone}.</Text>
           <View style={{marginTop: 12, gap: 5, flexDirection: 'row'}}>
             {
               codeLength.map((el, idx) => {
