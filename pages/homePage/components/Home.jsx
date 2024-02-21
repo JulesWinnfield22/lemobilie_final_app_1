@@ -4,9 +4,9 @@ import {
   StyleSheet,
   Text,
   Image,
-  Dimensions,
   Pressable,
   ScrollView,
+  Dimensions,
   StatusBar,
 } from "react-native";
 import Screen from "../../../components/Screen";
@@ -15,12 +15,14 @@ import colors from "../../../assets/style/colors";
 import { useNavigation } from "@react-navigation/native";
 
 function UtilCard({text, image, to, navigation}) {
+  const windowHeight = Dimensions.get('window').height;
+
   return (
     <Pressable
       onPress={() => navigation.navigate(to)}
       style={{
         width: "30%",
-        height: 120,
+        height: (windowHeight - 250) / 3,
         flexDirection: "column",
         borderRadius: 10,
         borderColor: colors.primary,

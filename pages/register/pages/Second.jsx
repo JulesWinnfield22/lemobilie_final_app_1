@@ -13,7 +13,9 @@ import { useApiRequest } from '../../../hooks/useApiRequest'
 import { register } from '../api/authApi'
 import { useRoute } from '@react-navigation/native'
 import { Picker } from '@react-native-picker/picker'
-import { setLoggedInUser } from '../../auth/auth'
+import { setLoggedInUser as setUser } from '../../auth/auth'
+import { setLoggedInUser } from '../../../store/reducers/user'
+import { useDispatch } from 'react-redux'
 
 function Second({ navigation }) {
   const [gender, setGeder] = useState('Male');
@@ -48,6 +50,15 @@ function Second({ navigation }) {
               userStatus: 'Active'
             }
           })
+          useDispatch(setUser({
+            token: 'loged in man.',
+            user: {
+              ...values,
+              ...userInfo,
+              gender,
+              userStatus: 'Active'
+            }
+          }))
           navigation.replace('Third', values)
         }
       }

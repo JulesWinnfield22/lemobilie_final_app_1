@@ -7,9 +7,13 @@ import { useNavigation } from "@react-navigation/native";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5"
 import MaterialIcons from "react-native-vector-icons/MaterialIcons"
 import Entypo from "react-native-vector-icons/Entypo"
+import { useSelector } from 'react-redux'
+
 export default function Footer() {
+  const user = useSelector(state => state.user)
   const navigation = useNavigation();
 
+  console.log(user)
   return (
     <Screen>
       <View style={{backgroundColor:colors["gray-300"],height:"100%",gap:10}}>
