@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Text, Image } from "react-native";
+import { View, StyleSheet, Text, Image, Pressable } from "react-native";
 import Screen from "../../../components/Screen";
 import colors from "../../../assets/style/colors";
 import AntDesign from "react-native-vector-icons/AntDesign"
@@ -8,12 +8,17 @@ import FontAwesome5 from "react-native-vector-icons/FontAwesome5"
 import MaterialIcons from "react-native-vector-icons/MaterialIcons"
 import Entypo from "react-native-vector-icons/Entypo"
 import { useSelector } from 'react-redux'
+import AsynStorage from '@react-native-async-storage/async-storage'
 
-export default function Footer() {
+export default function Footer({ navigation }) {
   const user = useSelector(state => state.user)
-  const navigation = useNavigation();
 
   console.log(user)
+
+  function logout() {
+    AsynStorage.clear()
+    navigation.replace('login')
+  }
   return (
     <Screen>
       <View style={{backgroundColor:colors["gray-300"],height:"100%",gap:10}}>
@@ -167,18 +172,21 @@ export default function Footer() {
 
 
 
-<View style={{ gap:20, justifyContent:"space-between", flexDirection:"row"}}>
-            <View style={{gap:10, flexDirection:"row"}}>
-         <Entypo
-            name="log-out"
-            size={24}
-            color="#212529"
-          /> 
-           <Text style={{color:"#212529", fontSize:20 ,fontWeight:"400"}}>Log Out</Text>
+  <Pressable onPress={logout}>
+    <View style={{ gap:20, justifyContent:"space-between", flexDirection:"row"}}>
+                <View style={{gap:10, flexDirection:"row"}}>
+            <Entypo
+                name="log-out"
+                size={24}
+                color="#212529"
+              /> 
+              <Text style={{color:"#212529", fontSize:20 ,fontWeight:"400"}}>Log Out</Text>
 
-            </View>
-     <Text style={{color:"#212529",fontSize:30,fontWeight:"300", marginTop:-10}}>&gt;</Text>
-</View>
+                </View>
+        <Text style={{color:"#212529",fontSize:30,fontWeight:"300", marginTop:-10}}>&gt;</Text>
+    </View>
+
+  </Pressable>
 
 
 </View>

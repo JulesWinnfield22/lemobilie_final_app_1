@@ -21,11 +21,11 @@ function UtilCard({text, image, to, navigation}) {
     <Pressable
       onPress={() => navigation.navigate(to)}
       style={{
-        width: "30%",
-        height: (windowHeight - 250) / 3,
+        width: "31%",
+        height: (windowHeight - 250) / 3.5,
         flexDirection: "column",
         borderRadius: 10,
-        borderColor: colors.primary,
+        borderColor: colors["gray-300"],
         borderWidth: 1,
         alignItems: "center",
         justifyContent: "center",
