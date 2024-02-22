@@ -61,6 +61,8 @@ function Second({ navigation }) {
           }))
           navigation.replace('Third', values)
         }
+        navigation.replace('Third', values)
+
       }
     )
   }
@@ -103,9 +105,9 @@ function Second({ navigation }) {
               label='Password'
             />
             <View style={{borderWidth: 2, borderColor: colors['gray-300'], borderRadius: 5, justifyContent: 'center', height: 50}}>
-              <Picker selectedValue={gender} onValueChange={(val) => setGeder(val)} mode='dropdown'>
-                <Picker.Item label='Male' value='Male' />
-                <Picker.Item label='Femael' value='Female' />
+              <Picker  tyle={{}} selectedValue={gender} onValueChange={(val) => setGeder(val)} mode='dropdown'>
+                <Picker.Item style={{color:"black",}} label='Male' value='Male' />
+                <Picker.Item style={{color:"black",}} label='Femael' value='Female' />
               </Picker>
             </View>
             <Checkbox

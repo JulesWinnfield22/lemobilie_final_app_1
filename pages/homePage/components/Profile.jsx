@@ -54,7 +54,7 @@ export default function Footer({ navigation }) {
         <View style={{backgroundColor:"white",marginHorizontal:20, height:"20%",borderRadius:10, flexDirection:"column",alignItems:"center", justifyContent:"center"}}>
            <View style={{alignItems:"center"}}>
            <Image style={{width:80 ,height:80,borderRadius:100}}  source={require("../../../assets/images/Messi.jpg")}></Image>
-          <Text style={{color:"#212529",fontWeight:"700",fontSize:20}}>Leonel Messi</Text>
+          <Text style={{color:"#212529",fontWeight:"700",fontSize:20}}>Lionel Messi</Text>
 
           </View>
        
